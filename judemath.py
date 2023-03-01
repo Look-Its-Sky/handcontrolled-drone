@@ -28,11 +28,23 @@ def getDirection(start: tuple, end: tuple, threshold: float) -> tuple:
         else:
             temp[1] = 0
 
+    if deltaPoints[2] > threshold or deltaPoints[2] < -threshold:
+        if deltaPoints[2] > 0:
+            temp[2] = 1
+
+        elif deltaPoints[2] < 0:
+            temp[2] = -1
+        
+        else:
+            temp[2] = 0
+
     return (temp[0], temp[1])
 
 def getHandDepthDiff(start: float, end: float, threshold: float):
     return end - start
 
 #so lets abandon everything and use this
-def getDirVec(start: float, end: float) -> tuple:
+def getDirVec(start: float, end: float):
+    if not start or not end:
+        return
     return (end.x - start.x, end.y - start.y, end.z - start.z)

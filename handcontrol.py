@@ -83,4 +83,5 @@ class handcontroller:
             except:
                 pass
 
+            #return distances of chosen points from last frame to this frame
             return self.dirVec
